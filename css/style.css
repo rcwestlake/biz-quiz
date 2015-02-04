@@ -111,10 +111,10 @@ body {
 }
 
 .pic1 {
-    background-image: url("../images/city-lights.jpeg");   
+    background-image: url("../images/citycarsatnight.jpeg");   
     width: 100%;
     height: 500px;
-    background-position: 1px;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -198,20 +198,20 @@ input {
     height: 55px;
     font-size: 1.2em;
     display:block;
-    margin: 1em auto;   
+    margin: 2.25em auto;   
 }
 
 .progress > ul {
     list-style-type: none;
-    margin-top: -325px;
+    margin-top: -390px;
 }
-
 
 
 #progress20,
 #progress40,
 #progress60,
 #progress80 {
+    margin-top: 10px;
     border-radius: 50%;
     height: 65px;
     background-color: white;
