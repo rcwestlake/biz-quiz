@@ -1,0 +1,222 @@
+
+/*Play instruction*/
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+nav ul {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.2em;
+    list-style-type: none;
+}
+
+
+/*style for hidden modal*/
+.overlay {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	background: #e74c3c;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	z-index: 1000;
+	display: none;
+}
+
+.content {
+	color: #fff;
+	background: #e74c3c;
+	position: relative;
+	height: auto;
+	width: 600px;
+	border-radius: 3px;
+	top: 15%;
+	margin: auto auto;
+	border: 1px solid rgba(0,0,0,0.1);
+}
+
+.content h3 {
+	margin: 0;
+	padding: 0.4em;
+	text-align: center;
+	font-size: 2.4em;
+	font-weight: 300;
+	opacity: 0.8;
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px 3px 0 0;
+}
+
+.content > div {
+	padding: 15px 40px 30px;
+	margin: 0;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+
+.content > div ul {
+	margin-bottom: -30px;
+	padding: 0 0 30px 20px;
+	text-align: left;
+}
+
+.content > div ul li {
+	padding: 5px 0;
+	display: block;	
+	list-style-type: disc;
+	line-height: 1.5em;
+    list-style-type: none;
+}
+
+.content > div ul li strong{
+	text-decoration: underline;
+}
+
+.content > a {
+	font-size: 0.8em;
+    width: 55px;
+	background: #1F253D;
+	color: #95a5a6;
+	padding: 0.5em 2em;
+	margin-bottom: 50px;
+	border-radius: 3px;
+    cursor: pointer;
+}
+
+/*---rest of code---*/
+
+body {
+    font-family: Lato, sans-serif;
+}
+
+.head {
+    width: 100%;
+    height: 500px;
+    background-position: 1px;
+    background-repeat: no-repeat;
+}
+
+.pic1 {
+    background-image: url("../images/city-lights.jpeg");   
+    width: 100%;
+    height: 500px;
+    background-position: 1px;
+    background-repeat: no-repeat;
+}
+
+.pic2 {
+       
+}
+
+.pic3 {
+    
+}
+
+.pic4 {
+    
+}
+
+.pic5 {
+    
+}
+
+button {
+    background-color: rgba(231, 93, 60, 0.93);
+    color: #534e4e;
+    font-weight: 600;
+    border: none;
+}
+
+#playAgain {
+    float: right;
+    border-radius: 2px;
+    width: 200px;
+    height: 50px;   
+    font-size: 1em;
+}
+
+#mainHeader {
+    text-align: center;
+    font-size: 4em;
+}
+
+#startQuiz {
+    width: 700px;   
+    height: 55px;
+    font-size: 1.2em;
+    display:block;
+    margin: 1em auto;
+    
+}
+
+#author {
+    text-align: center;
+    font-size: .5em;
+    margin-top: 3em;
+    
+}
+
+/*---style for question and answers---*/
+
+.questions h3, p {
+    text-align: center;
+    
+}
+
+.answers {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    background-color: #525257; 
+    border-radius: 50%;
+    border: none;
+    height: 40px;
+    width: 40px;
+    color: white;
+    line-height: 10px;
+}
+
+#submitAnswer {
+    width: 400px;   
+    height: 55px;
+    font-size: 1.2em;
+    display:block;
+    margin: 1em auto;   
+}
+
+.progress > ul {
+    list-style-type: none;
+    margin-top: -325px;
+}
+
+
+
+#progress20,
+#progress40,
+#progress60,
+#progress80 {
+    border-radius: 50%;
+    height: 65px;
+    background-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(231, 93, 60, 0.93);
+}
+

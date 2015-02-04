@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,900italic' rel='stylesheet' type='text/css'>
+
+	<!-- JavaScript -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<title>Biz Quiz App</title>
+</head>
+<body>
+    <div class="head">
+        <div class="pic1"></div>
+        <div class="pic2"></div>
+        <div class="pic3"></div>
+        <div class="pic4"></div>
+        <div class="pic5"></div>
+    
+    </div>
+    
+    <nav>
+        <div>
+            <button id="playAgain">Play Again +</button>
+            <ul class="clearfix">
+				<li><a class="what" href="#">How do I play ?</a></li>
+            </ul>
+            
+        </div>
+        
+        <!-- Modal Information Box -->
+        <div class="overlay" id="modal">
+            <div class="content">
+                <h3>To play, please:</h3>
+                <ul>
+                    <li>1. Press the 'Start Quiz' button.</li>
+                    <li>2. Read the question and select your answer.</li>
+                    <li>3. Press 'Submit' and continue until all questions are answered.</li>
+                </ul>
+                <a class="close">Got it!</a>
+            </div>
+        </div>    
+        
+    </nav>
+    <div>
+        <div id="mainHeader">BIZ QUIZ<br></div>
+        <br>
+        <button id="startQuiz">START QUIZ</button>
+        <p id="author">App by Ryan Westlake</p>
+    </div>
+    
+        
+    <div class="questions">
+        <span>
+            <h3 class="q1Header">Question 1</h3>
+            <p id="q1">Which company does Elon Musk own?</p>
+        </span>
+    </div>
+    
+    <div>
+        <div class="answers">
+            <input type="button" name="option" value="A"><span class="answer"> Dell</span><br>
+            <input type="button" name="option" value="B"><span class="answer"> Basecamp</span><br>
+            <input type="button" name="option" value="C"><span class="answer"> Tesla</span><br>
+            <input type="button" name="option" value="D"><span class="answer"> GE</span><br>
+        </div>
+    </div>
+    
+    <div>
+        <button id="submitAnswer">SUBMIT</button>
+    </div>
+    
+    <div class="rightSide">
+        <div class="progress">
+            <ul>
+            <li><button id="progress20">20% Done</button></li>
+            <li><button id="progress40">40% Done</button></li>
+            <li><button id="progress60">60% Done</button></li>
+            <li><button id="progress80">80% Done</button></li>
+            </ul>    
+        </div>
+    
+    </div>
+	
+</body>
+</html>
