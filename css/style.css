@@ -172,7 +172,7 @@ button {
 
 /*---style for question and answers---*/
 
-.q1Header {
+.qHeader {
     text-align: center;
     font-size: 30px;
     display: none;
@@ -214,7 +214,7 @@ input {
 
 .progress > ul {
     list-style-type: none;
-    margin-top: -420px;
+    margin-top: -320px;
     margin-left: 40px;
 }
 
