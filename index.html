@@ -42,6 +42,14 @@
             </div>
         </div>    
         
+            <div class="endGame">
+            <div class="content">
+                <h3>Great job!</h3>
+                You got <div id="numbCorrect"></div> Correct!
+                <a class="endGameClose">Play Again</a>
+            </div>
+        </div> 
+        
     </nav>
     <div>
         <div id="mainHeader">BIZ QUIZ<br></div>
@@ -53,19 +61,17 @@
         
     <div class="questions">
         <span>
-            <h1 class="qHeader"></h1>
+            <div class="qHeader"></div>
             <p id="q"></p>
         </span>
     </div>
     
-    <div>
         <div class="answers">
-            <input type="button" name="option" value="A"><span class="answer"> </span><br>
-            <input type="button" name="option" value="B"><span class="answer"> </span><br>
-            <input type="button" name="option" value="C"><span class="answer"> </span><br>
-            <input type="button" name="option" value="D"><span class="answer"> </span><br>
+            <button id="button1">A</button><div id="answer1"></div><br>
+            <button id="button2">B</button><div id="answer2"></div><br>
+            <button id="button3">C</button><div id="answer3"></div><br>
+            <button id="button4">D</button><div id="answer4"></div><br>
         </div>
-    </div>
     
     <div>
         <button id="submitAnswer">SUBMIT</button>
@@ -80,6 +86,10 @@
             <li><button id="progress80">80% Done</button></li>
             </ul>    
         </div>
+    
+    </div>
+    
+    <div class="center">
     
     </div>
     

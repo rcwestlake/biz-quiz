@@ -13,62 +13,79 @@ $(document).ready(function() {
     $("a.close").click(function() {
         $(".overlay").fadeOut(1000);
     });
-
-/*-- Start quiz when button is pushed for non-interactive version 
     
-    $("#startQuiz").click(function() {
-        $(".qHeader").show();
-        $(".questions p").show();
-        $(".answers").show();
-        $("input").show();
-        $("#submitAnswer").show();
-        $("#progress20").show();
-        $("#progress40").show();
-        $("#progress60").show();
-        $("#progress80").show();
-    }); 
-    --*/
+    $("a.endGameClose").click(function() {
+        $(".endGame").fadeOut('slow');
+        $("#startQuiz").fadeIn('slow');
+        $(".qHeader").html(q1.title).fadeOut('slow');
+        $("#q").html(q1.question).fadeOut('slow');
+        $("#answer1").html(q1.answers[0]).fadeOut('slow');
+        $("#answer2").html(q1.answers[1]).fadeOut('slow');
+        $("#answer3").html(q1.answers[2]).fadeOut('slow');
+        $("#answer4").html(q1.answers[3]).fadeOut('slow');
+        $(".answers").hide();
+        $("#submitAnswer").hide();
+        $("#progress20").hide();
+        $("#progress40").hide();
+        $("#progress60").hide();
+        $("#progress80").hide(); 
+    
+    });
 
 /*--quiz questions and answer array--*/
-    var question1 = new Object();
-    question1.title = "Question 1";
-    question1.question = "Which company does Elon Musk own?";
-    question1.answers = ["Dell", "Basecamp", "Tesla", "GE"];
-    question1.correct = 2;
     
-    var question2 = new Object();
-    question2.title = "Question 2";
-    question2.question = "What group typically invests in startup companies?";
-    question2.answers = ["Venture Capital", "Private Equity", "Hedge Funds", "Parents"];
-    question2.correct = 0;
+    function Question(title, question, answers, correctAnswer) {
+        this.title = title;
+        this.question = question;
+        this.answers = answers;
+        this.correctAnswer = correctAnswer;
+        this.userAnswer = -1;
+        this.nextQuestion;    
+     
     
-    var question3 = new Object();
-    question3.title = "Question 3";
-    question3.question = "Which company provides breakfast, lunch, and dinner for employees?";
-    question3.answers = ["Yahoo", "Goldman Sachs", "Patagonia", "Google"];
-    question3.correct = 3;
+     this.setNextQuestion = function(nextQuestion) {
+        this.nextQuestion = nextQuestion;   
+    }
+        
+    this.setAnswer = function(userAnswer) {
+        this.userAnswer = userAnswer;
+    }
+        
+     this.isCorrect = function() {
+         return this.correctAnswer === this.userAnswer;
+     }
+    }
     
-    var question4 = new Object();
-    question4.title = "Question 4";
-    question4.question = "CMO stands for...?";
-    question4.answers = ["Chief Me Officer", "Chief Market Officer", "Chief Marketing Officer", "Chief Merge Officer"];
-    question4.correct = 2;
+    var q1 = new Question('<h1>Question 1</h1>', "Which company does Elon Musk own?", ["Dell", "Basecamp", "Tesla", "GE"], 2);
     
-    var question5 = new Object();
-    question5.title = "Question 5";
-    question5.question = "What would Steve Jobs always wear for product announcements?";
-    question5.answers = ["White collared shirt", "Black turtleneck", "Suit", "V-neck shirt"];
-    question5.correct = 1;
+    var q2 = new Question("Question 2", "What group typically invests in startup companies?",["Venture Capital", "Private Equity", "Hedge Funds", "Parents"],0);
     
-    var questions = [question1, question2, question3, question4, question5];
+    var q3 = new Question("Question 3", "Which company provides breakfast, lunch, and dinner for employees?", ["Yahoo", "Goldman Sachs", "Patagonia", "Google"], 3);
+    
+    var q4 = new Question("Question 4", "CMO stands for...?", ["Chief Me Officer", "Chief Market Officer", "Chief Marketing Officer", "Chief Merge Officer"], 2);
+    
+    var q5 = new Question("Question 5", "What would Steve Jobs always wear for product announcements?", ["White collared shirt", "Black turtleneck", "Suit", "V-neck shirt"], 1);
+    
+    var currentQuestion = q1;
+    
+    q1.setNextQuestion(q2);
+    q2.setNextQuestion(q3);
+    q3.setNextQuestion(q4);
+    q4.setNextQuestion(q5);
        
     /*-load first question when button is pressed-*/
     
+    console.log(q1.title);
+    
     $("#startQuiz").click(function() {
         $("#startQuiz").fadeOut('slow');
-        $(".qHeader").html(question1.title).fadeIn('slow');
-        $("#q").html(question1.question).fadeIn('slow');
-        $(".answers").html(question1.answers).fadeIn('slow');
+        $(".qHeader").html(q1.title).fadeIn('slow');
+        $("#q").html(q1.question).fadeIn('slow');
+        $("#answer1").html(q1.answers[0]).fadeIn('slow');
+        $("#answer2").html(q1.answers[1]).fadeIn('slow');
+        $("#answer3").html(q1.answers[2]).fadeIn('slow');
+        $("#answer4").html(q1.answers[3]).fadeIn('slow');
+        $(".answers").show();
         $("#submitAnswer").show();
         $("#progress20").show();
         $("#progress40").show();
@@ -77,6 +94,82 @@ $(document).ready(function() {
         
     });
     
+    var buttonFill = ['#progress20', '#progress40', '#progress60', '#progress80']
+    var index = 0;
+    
+    $("#submitAnswer").click(function() {
+        settoGray();
+        currentQuestion = currentQuestion.nextQuestion;
+        if (currentQuestion == undefined) {
+            var iterator = q1; 
+            var numberCorrect = 0;
+            while (iterator != undefined) {
+                if (iterator.isCorrect()) {
+                    numberCorrect++;   
+                }
+                iterator = iterator.nextQuestion;
+            }
+            currentQuestion = q1;
+            $(".endGame").fadeIn('slow');
+            $('#numbCorrect').html(numberCorrect).show();
+            settoWhite();
+        }
+        else {
+            $(buttonFill[index]).css('background-color', 'red');
+            index++;                 
+            $(".qHeader").html(currentQuestion.title).fadeIn('slow');
+            $("#q").html(currentQuestion.question).fadeIn('slow');
+            $("#answer1").html(currentQuestion.answers[0]).fadeIn('slow');
+            $("#answer2").html(currentQuestion.answers[1]).fadeIn('slow');
+            $("#answer3").html(currentQuestion.answers[2]).fadeIn('slow');
+            $("#answer4").html(currentQuestion.answers[3]).fadeIn('slow');   
+        }
+       
+        
+    });
+    
+    $('#button1').click(function() {
+        currentQuestion.setAnswer(0);
+        settoGray();
+        $('#button1').css('background-color', 'red');
+    });
+    
+     $('#button2').click(function() {
+        currentQuestion.setAnswer(1);
+        settoGray();
+        $('#button2').css('background-color', 'red');
+        
+    });
+    
+     $('#button3').click(function() {
+        currentQuestion.setAnswer(2);
+        settoGray();
+        $('#button3').css('background-color', 'red');
+        
+    });
+    
+     $('#button4').click(function() {
+        currentQuestion.setAnswer(3);
+        settoGray();
+        $('#button4').css('background-color', 'red');
+        
+    });
+    
+    var settoGray = function() {
+        $('#button1').css('background-color', '#525257');
+        $('#button2').css('background-color', '#525257');
+        $('#button3').css('background-color', '#525257');
+        $('#button4').css('background-color', '#525257');
+    }
+    
+    var settoWhite = function() {
+        $('#progress20').css('background-color', 'white');
+        $('#progress40').css('background-color', 'white');
+        $('#progress60').css('background-color', 'white');
+        $('#progress80').css('background-color', 'white');
+    }
+
+
     
 
 });

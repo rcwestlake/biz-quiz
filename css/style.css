@@ -38,6 +38,19 @@ nav ul {
 	display: none;
 }
 
+.endGame {
+	width: 100%;
+	height: 100%;
+	color: #98d68d;
+	background: #e74c3c;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	z-index: 1000;
+	display: none;
+}
+
 .content {
 	color: #fff;
 	background: #e74c3c;
@@ -192,15 +205,19 @@ button {
     display: none;
 }
 
-input {
+.answers > button {
     background-color: #525257; 
     border-radius: 50%;
     border: none;
     height: 40px;
     width: 40px;
     color: white;
-    line-height: 10px;
-    display: none;
+    line-height: 30px;
+}
+
+.answers > div {
+    float: left;
+    margin-left: 50px;
 }
 
 #submitAnswer {
