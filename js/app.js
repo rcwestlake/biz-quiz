@@ -108,6 +108,7 @@ $(document).ready(function() {
         $("#progress40").show();
         $("#progress60").show();
         $("#progress80").show();
+         window.scrollTo(200, 400);
         
     });
     
@@ -176,6 +177,7 @@ $(document).ready(function() {
         //restart quiz if 'Play Again' button is pressed
     
     $('#playAgain').click(function() {
+        console.log(buttonFill[index]);
         $("#startQuiz").fadeIn('slow');
         $(".qHeader").html(q1.title).fadeOut('fast');
         $("#q").html(q1.question).fadeOut('fast');
@@ -185,7 +187,7 @@ $(document).ready(function() {
         $("#answer4").html(q1.answers[3]).fadeOut('slow');
         $(".answers").hide();
         $("#submitAnswer").hide();
-        $(buttonFill[index]).css('background-color', 'white');
+        $(".progress button").css('background-color', 'white');
         $("#progress20").hide();
         $("#progress40").hide();
         $("#progress60").hide();
