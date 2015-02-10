@@ -1,3 +1,17 @@
+ var settoGray = function() {
+        $('#button1').css('background-color', '#525257');
+        $('#button2').css('background-color', '#525257');
+        $('#button3').css('background-color', '#525257');
+        $('#button4').css('background-color', '#525257');
+    }
+    
+    var settoWhite = function() {
+        $('#progress20').css('background-color', 'white');
+        $('#progress40').css('background-color', 'white');
+        $('#progress60').css('background-color', 'white');
+        $('#progress80').css('background-color', 'white');
+    }
+
 $(document).ready(function() {
     
     var numberCorrect = 0;
@@ -13,6 +27,8 @@ $(document).ready(function() {
     $("a.close").click(function() {
         $(".overlay").fadeOut(1000);
     });
+
+/*-- Go back to main screen when game is over*/
     
     $("a.endGameClose").click(function() {
         $(".endGame").fadeOut('slow');
@@ -31,6 +47,7 @@ $(document).ready(function() {
         $("#progress80").hide(); 
     
     });
+    
 
 /*--quiz questions and answer array--*/
     
@@ -156,36 +173,25 @@ $(document).ready(function() {
         
     });
     
-    var settoGray = function() {
-        $('#button1').css('background-color', '#525257');
-        $('#button2').css('background-color', '#525257');
-        $('#button3').css('background-color', '#525257');
-        $('#button4').css('background-color', '#525257');
-    }
-    
-    var settoWhite = function() {
-        $('#progress20').css('background-color', 'white');
-        $('#progress40').css('background-color', 'white');
-        $('#progress60').css('background-color', 'white');
-        $('#progress80').css('background-color', 'white');
-    }
-
-//restart quiz if 'Play Again' button is pressed
+        //restart quiz if 'Play Again' button is pressed
     
     $('#playAgain').click(function() {
         $("#startQuiz").fadeIn('slow');
-        $(".qHeader").fadeOut('slow');
-        $('#q').fadeOut('slow');
+        $(".qHeader").html(q1.title).fadeOut('fast');
+        $("#q").html(q1.question).fadeOut('fast');
         $("#answer1").html(q1.answers[0]).fadeOut('slow');
         $("#answer2").html(q1.answers[1]).fadeOut('slow');
         $("#answer3").html(q1.answers[2]).fadeOut('slow');
         $("#answer4").html(q1.answers[3]).fadeOut('slow');
         $(".answers").hide();
         $("#submitAnswer").hide();
+        $(buttonFill[index]).css('background-color', 'white');
         $("#progress20").hide();
         $("#progress40").hide();
         $("#progress60").hide();
-        $("#progress80").hide(); 
+        $("#progress80").hide();  
+        currentQuestion = q1;
+        
     
     });
     

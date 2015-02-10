@@ -51,6 +51,12 @@ nav ul {
 	display: none;
 }
 
+.endGameClose {
+    width: 100px;
+    height: 25px;
+    text-align: center;
+}
+
 .content {
 	color: #fff;
 	background: #e74c3c;
@@ -68,7 +74,7 @@ nav ul {
 	background: #e74c3c;
 	position: relative;
 	height: auto;
-	width: 600px;
+	width: auto;
 	border-radius: 3px;
 	top: 15%;
 	margin: auto auto;
