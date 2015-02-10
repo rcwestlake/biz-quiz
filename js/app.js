@@ -56,15 +56,15 @@ $(document).ready(function() {
      }
     }
     
-    var q1 = new Question('<h1>Question 1</h1>', "Which company does Elon Musk own?", ["Dell", "Basecamp", "Tesla", "GE"], 2);
+    var q1 = new Question('<h2>Question 1</h2>', "Which company does Elon Musk own?", ["Dell", "Basecamp", "Tesla", "GE"], 2);
     
-    var q2 = new Question("Question 2", "What group typically invests in startup companies?",["Venture Capital", "Private Equity", "Hedge Funds", "Parents"],0);
+    var q2 = new Question("<h2>Question 2</h2>", "What group typically invests in startup companies?",["Venture Capital", "Private Equity", "Hedge Funds", "Parents"],0);
     
-    var q3 = new Question("Question 3", "Which company provides breakfast, lunch, and dinner for employees?", ["Yahoo", "Goldman Sachs", "Patagonia", "Google"], 3);
+    var q3 = new Question("<h2>Question 3</h2>", "Which company provides breakfast, lunch, and dinner for employees?", ["Yahoo", "Goldman Sachs", "Patagonia", "Google"], 3);
     
-    var q4 = new Question("Question 4", "CMO stands for...?", ["Chief Me Officer", "Chief Market Officer", "Chief Marketing Officer", "Chief Merge Officer"], 2);
+    var q4 = new Question("<h2>Question 4</h2>", "CMO stands for...?", ["Chief Me Officer", "Chief Market Officer", "Chief Marketing Officer", "Chief Merge Officer"], 2);
     
-    var q5 = new Question("Question 5", "What would Steve Jobs always wear for product announcements?", ["White collared shirt", "Black turtleneck", "Suit", "V-neck shirt"], 1);
+    var q5 = new Question("<h2>Question 5</h2>", "What would Steve Jobs always wear for product announcements?", ["White collared shirt", "Black turtleneck", "Suit", "V-neck shirt"], 1);
     
     var currentQuestion = q1;
     
@@ -112,10 +112,11 @@ $(document).ready(function() {
             currentQuestion = q1;
             $(".endGame").fadeIn('slow');
             $('#numbCorrect').html(numberCorrect).show();
+            window.scrollTo(0, 0);
             settoWhite();
         }
         else {
-            $(buttonFill[index]).css('background-color', 'red');
+            $(buttonFill[index]).css('background-color', 'rgba(231, 93, 60, 0.93)');
             index++;                 
             $(".qHeader").html(currentQuestion.title).fadeIn('slow');
             $("#q").html(currentQuestion.question).fadeIn('slow');
@@ -131,27 +132,27 @@ $(document).ready(function() {
     $('#button1').click(function() {
         currentQuestion.setAnswer(0);
         settoGray();
-        $('#button1').css('background-color', 'red');
+        $('#button1').css('background-color', '#46a37c');
     });
     
      $('#button2').click(function() {
         currentQuestion.setAnswer(1);
         settoGray();
-        $('#button2').css('background-color', 'red');
+        $('#button2').css('background-color', '#46a37c');
         
     });
     
      $('#button3').click(function() {
         currentQuestion.setAnswer(2);
         settoGray();
-        $('#button3').css('background-color', 'red');
+        $('#button3').css('background-color', '#46a37c');
         
     });
     
      $('#button4').click(function() {
         currentQuestion.setAnswer(3);
         settoGray();
-        $('#button4').css('background-color', 'red');
+        $('#button4').css('background-color', '#46a37c');
         
     });
     
@@ -169,7 +170,24 @@ $(document).ready(function() {
         $('#progress80').css('background-color', 'white');
     }
 
-
+//restart quiz if 'Play Again' button is pressed
+    
+    $('#playAgain').click(function() {
+        $("#startQuiz").fadeIn('slow');
+        $(".qHeader").fadeOut('slow');
+        $('#q').fadeOut('slow');
+        $("#answer1").html(q1.answers[0]).fadeOut('slow');
+        $("#answer2").html(q1.answers[1]).fadeOut('slow');
+        $("#answer3").html(q1.answers[2]).fadeOut('slow');
+        $("#answer4").html(q1.answers[3]).fadeOut('slow');
+        $(".answers").hide();
+        $("#submitAnswer").hide();
+        $("#progress20").hide();
+        $("#progress40").hide();
+        $("#progress60").hide();
+        $("#progress80").hide(); 
+    
+    });
     
 
 });
