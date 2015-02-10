@@ -230,12 +230,14 @@ button {
     height: 40px;
     width: 40px;
     color: white;
-    line-height: 30px;
+    line-height: 15px;
+    margin-top: 4px;
+    margin-left: 30px;
 }
 
 .answers > div {
-    float: left;
-    margin-left: 50px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 #submitAnswer {
