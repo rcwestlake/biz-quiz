@@ -41,6 +41,7 @@ $(document).ready(function() {
         $("#answer4").html(q1.answers[3]).fadeOut('slow');
         $(".answers").hide();
         $("#submitAnswer").hide();
+        index = 0;
         $("#progress20").hide();
         $("#progress40").hide();
         $("#progress60").hide();
@@ -188,6 +189,7 @@ $(document).ready(function() {
         $(".answers").hide();
         $("#submitAnswer").hide();
         $(".progress button").css('background-color', 'white');
+        index = 0;
         $("#progress20").hide();
         $("#progress40").hide();
         $("#progress60").hide();
